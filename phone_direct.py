@@ -158,7 +158,7 @@ def main():
                 continue
             print(*read_file(file_name))
         elif command == 'c':  # Команда для операции копирования
-            file = input('Введите имя копируемого файла: ')
+            file = input('Введите имя файла из которого будете копировать: ')
             if not exists(file):
                 print("Файл отсутствует")
                 continue
