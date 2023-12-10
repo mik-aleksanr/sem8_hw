@@ -79,7 +79,7 @@ def get_info():
 
 def create_file(file):
     # with - Менеджер контекста
-    with open(file, "w", encoding='utf-8') as data:
+    with open(file, "w", encoding='utf-8', newline='') as data:
         f_writer = DictWriter(data, fieldnames=['Имя', 'Фамилия', 'Телефон'])
         f_writer.writeheader()
 
@@ -169,6 +169,8 @@ def main():
             except ValueError:
                 num_row = None
             file_copy = input('Введите имя файла в который будете копировать: ')
+            if not exists(file_copy):
+                create_file(file_copy)
             file_to_copy(obj_lst, file_copy, num_row)
         elif command == 'd':  # Команда для операции удаления
             del_file = input('Введите имя файла для удаления: ')
